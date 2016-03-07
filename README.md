@@ -13,8 +13,3 @@ Stos technologiczny w którym będą realizowane prace:
 * SLF4j - interfejs loggera 
 * Logback - implementacja loggera 
 * 
-
-<ol>
-  <li>Vaddin 7</li>
-  <li>Pears</li>
-</ol>
