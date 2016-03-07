@@ -1,4 +1,4 @@
-Stos technologiczny w którym będą realizowane prace:
+Tech stack of our project:
 
 * Java 7 
 * Spring Boot
@@ -13,3 +13,7 @@ Stos technologiczny w którym będą realizowane prace:
 * SLF4j - interfejs loggera 
 * Logback - implementacja loggera 
 * Vaddin 7
+
+Gants' Diagram of webApp (MVP):
+![gantWebApp.png](https://bitbucket.org/repo/rGxLq8/images/280688268-gantWebApp.png)
+
