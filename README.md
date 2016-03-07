@@ -12,4 +12,4 @@ Stos technologiczny w którym będą realizowane prace:
 * Java Bean Validation 
 * SLF4j - interfejs loggera 
 * Logback - implementacja loggera 
-* 
+* Vaddin 7
