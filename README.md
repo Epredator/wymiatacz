@@ -16,3 +16,5 @@ Tech stack of our project:
 
 Gants' Diagram of webApp (MVP):
 ![gantWebApp.png](https://bitbucket.org/repo/rGxLq8/images/3496039133-gantWebApp.png)
+
+src: [Link Text](https://drive.google.com/file/d/0B89d2CJg1yNNSktJcjdoeC1qRDg/view?usp=sharing)
