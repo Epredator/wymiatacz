@@ -1,4 +1,5 @@
 Stos technologiczny w którym będą realizowane prace:
+
 * Java 7 
 * Spring Boot
 * Tomcat 
@@ -11,4 +12,9 @@ Stos technologiczny w którym będą realizowane prace:
 * Java Bean Validation 
 * SLF4j - interfejs loggera 
 * Logback - implementacja loggera 
-* Vaddin 7
+* 
+
+<ol>
+  <li>Vaddin 7</li>
+  <li>Pears</li>
+</ol>
