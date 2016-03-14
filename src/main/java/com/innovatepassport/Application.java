@@ -1,5 +1,6 @@
 package com.innovatepassport;
 
+import com.innovatepassport.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

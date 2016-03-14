@@ -1,23 +1,22 @@
 package com.innovatepassport;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
-
+import com.innovatepassport.gui.MainTabsheet;
+import com.innovatepassport.model.Ticket;
+import com.innovatepassport.model.User;
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.Title;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Grid;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-
+import com.vaadin.ui.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 @SpringUI
 @Theme("valo")
-public class VaadinUI extends UI {
+@Title("PosprzatajTo")
+@SuppressWarnings("serial")
+public class MainGUI extends UI {
 
 	private final UserRepository repo;
 
@@ -29,8 +28,23 @@ public class VaadinUI extends UI {
 
 	private final Button addNewBtn;
 
+	private double currentLatitude = 52.2296756;
+	private double currentLongitude = 21.012228700000037;
+	private User user;
+
+	private BeanItemContainer<Ticket> ticketContainer;
+
+	/**
+	 * A typed version of {@link UI#getCurrent()}
+	 *
+	 * @return the currently active PosprzatajTo UI.
+	 */
+	public static MainGUI getApp() {
+		return (MainGUI) UI.getCurrent();
+	}
+
 	@Autowired
-	public VaadinUI(UserRepository repo, UserEditor editor) {
+	public MainGUI(UserRepository repo, UserEditor editor) {
 		this.repo = repo;
 		this.editor = editor;
 		this.grid = new Grid();
@@ -40,15 +54,22 @@ public class VaadinUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest request) {
+//		ticketContainer = new BeanItemContainer<Ticket>(Ticket.class, DataUtil.generateDummyTickets());
+//		user.setFirstName("Jan");        // set static default user name
+//		user.setLastName("Kowalski");    //TODO prepare user panel to log in app.
+
+
 		// build layout
-		HorizontalLayout actions = new HorizontalLayout(filter, addNewBtn);
-		VerticalLayout mainLayout = new VerticalLayout(actions, grid, editor);
-		setContent(mainLayout);
+//		HorizontalLayout actions = new HorizontalLayout(filter, addNewBtn);
+//		VerticalLayout mainLayout = new VerticalLayout(actions, grid, editor);
+//		setContent(mainLayout);
+
+		setContent(new MainTabsheet());
 
 		// Configure layouts and components
-		actions.setSpacing(true);
-		mainLayout.setMargin(true);
-		mainLayout.setSpacing(true);
+//		actions.setSpacing(true);
+//		mainLayout.setMargin(true);
+//		mainLayout.setSpacing(true);
 
 		grid.setHeight(300, Unit.PIXELS);
 		grid.setColumns("id", "firstName", "lastName");
@@ -93,7 +114,22 @@ public class VaadinUI extends UI {
 			grid.setContainerDataSource(new BeanItemContainer(User.class,
 					repo.findByLastNameStartsWithIgnoreCase(text)));
 		}
-	}
-	// end::listCustomers[]
+	}// end::listUsers[]
 
+
+	public double getCurrentLongitude() {
+		return currentLongitude;
+	}
+
+	public void setCurrentLongitude(double currentLongitude) {
+		this.currentLongitude = currentLongitude;
+	}
+
+	public double getCurrentLatitude() {
+		return currentLatitude;
+	}
+
+	public void setCurrentLatitude(double currentLatitude) {
+		this.currentLatitude = currentLatitude;
+	}
 }
