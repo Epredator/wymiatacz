@@ -16,7 +16,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'posprzatajto'
+    baseName = 'wymiatacz'
     version =  '0.0.1'
 }
 
