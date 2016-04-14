@@ -1,4 +1,4 @@
-package com.innovatepassport.model;
+package com.innovationpassport.model;
 
 /**
  * User: trojnaradam@gmail.com

@@ -1,4 +1,4 @@
-package com.innovatepassport;
+package com.innovationpassport;
 
 /**
  * User: trojnaradam@gmail.com
@@ -6,7 +6,7 @@ package com.innovatepassport;
  * Time: 08:23
  */
 
-import com.innovatepassport.model.Ticket;
+import com.innovationpassport.model.Ticket;
 
 import java.util.Collection;
 

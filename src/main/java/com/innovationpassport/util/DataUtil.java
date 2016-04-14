@@ -1,10 +1,10 @@
-package com.innovatepassport.util;
+package com.innovationpassport.util;
 
 import com.google.gwt.thirdparty.guava.common.collect.Lists;
-import com.innovatepassport.MainGUI;
-import com.innovatepassport.model.Location;
-import com.innovatepassport.model.Ticket;
-import com.innovatepassport.model.Violation;
+import com.innovationpassport.MainGUI;
+import com.innovationpassport.model.Location;
+import com.innovationpassport.model.Ticket;
+import com.innovationpassport.model.Violation;
 
 import java.util.Calendar;
 import java.util.Collection;

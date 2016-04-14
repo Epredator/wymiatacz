@@ -1,4 +1,4 @@
-package com.innovatepassport.gui;
+package com.innovationpassport.gui;
 
 //import com.vaadin.addon.touchkit.ui.TabBarView;
 import com.vaadin.ui.*;

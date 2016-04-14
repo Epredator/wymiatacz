@@ -1,4 +1,4 @@
-package com.innovatepassport.gui;
+package com.innovationpassport.gui;
 
 import com.vaadin.ui.CssLayout;
 
@@ -7,5 +7,5 @@ import com.vaadin.ui.CssLayout;
  * Date: 12.03.16
  * Time: 19:27
  */
-public class TicketView extends CssLayout {
+public class MapView extends CssLayout{
 }

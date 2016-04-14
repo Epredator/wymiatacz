@@ -1,6 +1,6 @@
-package com.innovatepassport;
+package com.innovationpassport;
 
-import com.innovatepassport.model.User;
+import com.innovationpassport.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

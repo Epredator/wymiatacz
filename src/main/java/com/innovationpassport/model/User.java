@@ -1,4 +1,4 @@
-package com.innovatepassport.model;
+package com.innovationpassport.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

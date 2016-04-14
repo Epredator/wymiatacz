@@ -1,4 +1,4 @@
-package com.innovatepassport;
+package com.innovationpassport;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;

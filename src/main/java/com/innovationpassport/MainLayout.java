@@ -1,4 +1,4 @@
-package com.innovatepassport;
+package com.innovationpassport;
 
 import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.UI;

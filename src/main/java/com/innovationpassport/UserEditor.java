@@ -1,6 +1,6 @@
-package com.innovatepassport;
+package com.innovationpassport;
 
-import com.innovatepassport.model.User;
+import com.innovationpassport.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
