@@ -14,7 +14,7 @@ public class MainLayout extends MainLayoutDesign {
         menuButton1.addClickListener(event -> doNavigate(StatsView.VIEW_NAME));
         menuButton2
                 .addClickListener(event -> doNavigate(PluginsView.VIEW_NAME));
-        menuButton6.addClickListener(
+        menuButton3.addClickListener(
                 event -> doNavigate(PermissionsView.VIEW_NAME));
 
         if (navigator.getState().isEmpty()) {
