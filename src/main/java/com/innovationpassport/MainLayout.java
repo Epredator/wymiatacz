@@ -10,12 +10,15 @@ public class MainLayout extends MainLayoutDesign {
         navigator.addView(StatsView.VIEW_NAME, StatsView.class);
         navigator.addView(PluginsView.VIEW_NAME, PluginsView.class);
         navigator.addView(PermissionsView.VIEW_NAME, PermissionsView.class);
+        navigator.addView(OrderView.VIEW_NAME, OrderView.class);
 
         menuButton1.addClickListener(event -> doNavigate(StatsView.VIEW_NAME));
         menuButton2
                 .addClickListener(event -> doNavigate(PluginsView.VIEW_NAME));
         menuButton3.addClickListener(
                 event -> doNavigate(PermissionsView.VIEW_NAME));
+        menuButton4.addClickListener(event -> doNavigate(OrderView.VIEW_NAME));
+        menuButton5.addClickListener(event -> doNavigate(StatsView.VIEW_NAME));
 
         if (navigator.getState().isEmpty()) {
             navigator.navigateTo(StatsView.VIEW_NAME);
