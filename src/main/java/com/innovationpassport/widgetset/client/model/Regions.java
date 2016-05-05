@@ -1,17 +1,19 @@
 package com.innovationpassport.widgetset.client.model;
 
-public enum Violation {
-    TECHNICAL_WASTE("Odpady techniczne"), FOOD_WASTE("Odpady żywności"), CHEMICAL_WASTE(
-            "Odpady chemiczne");
+/**
+ * Created by Antilamer on 05.05.2016.
+ */
+public enum Regions {
+    MAZ("Mazowieckie"), KRK("Małopolskie"), SWK("Świętokrzyskie");
+
 
     private final String caption;
 
-    private Violation(String caption) {
+    private Regions(String caption) {
         this.caption = caption;
     }
 
     public String getCaption() {
         return caption;
     }
-
 }

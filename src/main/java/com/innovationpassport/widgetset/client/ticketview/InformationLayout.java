@@ -17,6 +17,7 @@ import com.google.gwt.geolocation.client.PositionError;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.innovationpassport.widgetset.client.model.Regions;
 import com.vaadin.addon.touchkit.gwt.client.ui.DatePicker;
 import com.vaadin.addon.touchkit.gwt.client.ui.DatePicker.Resolution;
 import com.vaadin.addon.touchkit.gwt.client.ui.VSwitch;
@@ -128,7 +129,7 @@ public class InformationLayout extends VerticalComponentGroupWidget {
 
         violationBox = new ListBox();
         violationBox.addChangeHandler(ch);
-        violationBox.addItem("Choose...", (String) null);
+        violationBox.addItem("Wybierz...", (String) null);
         for (Violation violation : Violation.values()) {
             violationBox.addItem(violation.getCaption(), violation.name());
         }
@@ -173,12 +174,15 @@ public class InformationLayout extends VerticalComponentGroupWidget {
 
         areaBox = new ListBox();
         areaBox.addChangeHandler(ch);
-        areaBox.addItem("Choose...", (String) null);
-        for (char zone : "ABC".toCharArray()) {
-            for (int i = 1; i < 5; i++) {
-                String area = String.valueOf(zone) + i;
-                areaBox.addItem(area, area);
-            }
+        areaBox.addItem("Wybierz...", (String) null);
+//        for (char zone : "ABC".toCharArray()) {
+//            for (int i = 1; i < 5; i++) {
+//                String area = String.valueOf(zone) + i;
+//                areaBox.addItem(area, area);
+//            }
+//        }
+        for (Regions regions : Regions.values()) {
+            areaBox.addItem(regions.getCaption(), regions.name());
         }
         areaBox.setWidth("100%");
         areaBox.setStyleName("v-select-select");
