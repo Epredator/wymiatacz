@@ -13,7 +13,7 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
-//import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Window;
@@ -27,7 +27,8 @@ import java.net.UnknownHostException;
 /**
  * The UI class for wymiatacz.com mvp.
  */
-@Theme("wymiatacz")
+@SpringUI
+@Theme("parking")
 @Widgetset("com.innovationpassport.widgetset.WymiataczWidgetset")
 @PreserveOnRefresh
 @Title("Wymiatacz.com -wymieć śmieci z Twojej okolicy!")
