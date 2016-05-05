@@ -27,7 +27,7 @@ import java.net.UnknownHostException;
 /**
  * The UI class for wymiatacz.com mvp.
  */
-@Theme("wymiatacz")
+@Theme("parking")
 @Widgetset("com.innovationpassport.widgetset.WymiataczWidgetset")
 @PreserveOnRefresh
 @Title("Wymiatacz.com -wymieć śmieci z Twojej okolicy!")
