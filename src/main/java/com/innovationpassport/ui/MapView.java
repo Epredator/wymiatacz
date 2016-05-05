@@ -43,23 +43,19 @@ public class MapView extends CssLayout implements PositionCallback,
         setSizeFull();
 
         map = new LMap();
-
-        // Note, if you wish to use Mapbox base maps, get your own API key.
         LTileLayer mapBoxTiles = new LTileLayer(
-                "http://{s}.tiles.mapbox.com/v3/vaadin.i1pikm9o/{z}/{x}/{y}.png");
+                "https://api.mapbox.com/styles/v1/epredator/cinume4fm00lcc7m5xqeaqstx/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZXByZWRhdG9yIiwiYSI6ImNpbHBsZW05eTAwM3d1emx1anNnNGNmcmUifQ.ngFbn8yJ5aPs0CtLw-2SLw");
         mapBoxTiles.setDetectRetina(true);
         map.addLayer(mapBoxTiles);
 
         map.setAttributionPrefix("wymiatacz.com powered by <a href=\"leafletjs.com\">Leaflet</a> — &copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors");
-
         map.setImmediate(true);
-
         map.setSizeFull();
-        map.setZoomLevel(12);
+        map.setZoomLevel(15);
+
         addComponent(map);
 
-        // Default to Vaadin HQ
-        you.setPoint(new Point(60.452, 22.301));
+        you.setPoint(new Point(52.2502163, 21.0356212));
         setCenter();
 
         locatebutton = new Button("", new ClickListener() {
