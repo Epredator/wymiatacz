@@ -44,6 +44,7 @@ public class MainUI extends UI {
     private String user;
     private ParkingOfflineModeExtension offlineModeSettings;
     private BeanItemContainer<Ticket> ticketContainer;
+    //del
 
     @Override
     public void init(VaadinRequest request) {
