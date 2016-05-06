@@ -17,6 +17,7 @@ import com.google.gwt.geolocation.client.PositionError;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.innovationpassport.widgetset.client.model.Regions;
 import com.vaadin.addon.touchkit.gwt.client.ui.DatePicker;
 import com.vaadin.addon.touchkit.gwt.client.ui.DatePicker.Resolution;
 import com.vaadin.addon.touchkit.gwt.client.ui.VSwitch;
@@ -30,9 +31,7 @@ public class InformationLayout extends VerticalComponentGroupWidget {
     private final VSwitch useCurrentLocationSwitch;
     private com.google.gwt.geolocation.client.Position currentPosition;
     private final VTextField addressField;
-    private final DatePicker timeField;
     private Date date = new Date();
-    private final VTextField vehicleIdField;
     private final ListBox violationBox;
     private final ListBox areaBox;
     private final TicketViewModuleListener listener;
@@ -80,28 +79,16 @@ public class InformationLayout extends VerticalComponentGroupWidget {
         boolean valid = true;
         if (!useCurrentLocationSwitch.getValue()
                 && (addressField.getText() == null || addressField.getText()
-                        .trim().isEmpty())) {
+                .trim().isEmpty())) {
             valid = false;
             invalidFields.add(addressField);
-        }
-        if (date == null) {
-            valid = false;
-            invalidFields.add(timeField);
-        }
-        if (vehicleIdField.getText() == null
-                || vehicleIdField.getText().trim().isEmpty()) {
-            valid = false;
-            invalidFields.add(vehicleIdField);
         }
 
         if (violationBox.getSelectedIndex() == 0) {
             valid = false;
             invalidFields.add(violationBox);
         }
-        if (areaBox.getSelectedIndex() == 0) {
-            valid = false;
-            invalidFields.add(areaBox);
-        }
+
         for (Widget invalidField : invalidFields) {
             getRowElement(invalidField).addClassName("invalid");
         }
@@ -129,8 +116,31 @@ public class InformationLayout extends VerticalComponentGroupWidget {
 
                         getRowElement(addressField).getStyle().setProperty(
                                 "display", event.getValue() ? "none" : "");
+                        getRowElement(areaBox).getStyle().setProperty(
+                                "display", event.getValue() ? "none" : "");
                     }
                 });
+        final ChangeHandler ch = new ChangeHandler() {
+            @Override
+            public void onChange(final ChangeEvent event) {
+                listener.fieldsChanged();
+            }
+        };
+
+        violationBox = new ListBox();
+        violationBox.addChangeHandler(ch);
+        violationBox.addItem("Wybierz...", (String) null);
+        for (Violation violation : Violation.values()) {
+            violationBox.addItem(violation.getCaption(), violation.name());
+        }
+        violationBox.setWidth("100%");
+        violationBox.setStyleName("v-select-select");
+        SimplePanel violationWrapper = new SimplePanel(violationBox);
+        violationWrapper.setStyleName("v-select");
+        add(violationWrapper);
+        updateCaption(violationWrapper, "Violation", null, "100.0%",
+                "v-caption");
+
         add(useCurrentLocationSwitch);
         updateCaption(useCurrentLocationSwitch, "My location", null, "100.0%",
                 "v-caption");
@@ -160,69 +170,19 @@ public class InformationLayout extends VerticalComponentGroupWidget {
         add(addressField);
         updateCaption(addressField, "Address", null, "100.0%", "v-caption");
 
-        timeField = new DatePicker();
-        timeField.setResolution(Resolution.TIME);
-        timeField.setDate(date);
 
-        timeField.addValueChangeHandler(new ValueChangeHandler<Date>() {
-            @Override
-            public void onValueChange(final ValueChangeEvent<Date> event) {
-                date = timeField.getDateValue();
-                listener.fieldsChanged();
-            }
-        });
-
-        add(timeField);
-        updateCaption(timeField, "Time", null, "100.0%", "v-caption");
-
-        vehicleIdField = new VTextField();
-        vehicleIdField.addValueChangeHandler(vch);
-        vehicleIdField.setWidth("100%");
-
-        /*
-         * ClickHandler is needed for fixing bug #14743 with WP
-         */
-        vehicleIdField.addClickHandler(new ClickHandler() {
-
-            @Override
-            public void onClick(ClickEvent event) {
-                vehicleIdField.setFocus(true);
-
-            }
-        });
-
-        add(vehicleIdField);
-        updateCaption(vehicleIdField, "Vehicle ID", null, "100.0%", "v-caption");
-
-        final ChangeHandler ch = new ChangeHandler() {
-            @Override
-            public void onChange(final ChangeEvent event) {
-                listener.fieldsChanged();
-            }
-        };
-
-        violationBox = new ListBox();
-        violationBox.addChangeHandler(ch);
-        violationBox.addItem("Choose...", (String) null);
-        for (Violation violation : Violation.values()) {
-            violationBox.addItem(violation.getCaption(), violation.name());
-        }
-        violationBox.setWidth("100%");
-        violationBox.setStyleName("v-select-select");
-        SimplePanel violationWrapper = new SimplePanel(violationBox);
-        violationWrapper.setStyleName("v-select");
-        add(violationWrapper);
-        updateCaption(violationWrapper, "Violation", null, "100.0%",
-                "v-caption");
 
         areaBox = new ListBox();
         areaBox.addChangeHandler(ch);
-        areaBox.addItem("Choose...", (String) null);
-        for (char zone : "ABC".toCharArray()) {
-            for (int i = 1; i < 5; i++) {
-                String area = String.valueOf(zone) + i;
-                areaBox.addItem(area, area);
-            }
+        areaBox.addItem("Wybierz...", (String) null);
+//        for (char zone : "ABC".toCharArray()) {
+//            for (int i = 1; i < 5; i++) {
+//                String area = String.valueOf(zone) + i;
+//                areaBox.addItem(area, area);
+//            }
+//        }
+        for (Regions regions : Regions.values()) {
+            areaBox.addItem(regions.getCaption(), regions.name());
         }
         areaBox.setWidth("100%");
         areaBox.setStyleName("v-select-select");
@@ -235,8 +195,8 @@ public class InformationLayout extends VerticalComponentGroupWidget {
     }
 
     public final void resetValidations() {
-        for (Widget field : Arrays.<Widget> asList(addressField, timeField,
-                vehicleIdField, violationBox, areaBox)) {
+        for (Widget field : Arrays.<Widget>asList(addressField,
+                violationBox, areaBox)) {
             getRowElement(field).removeClassName("invalid");
         }
     }
@@ -253,8 +213,6 @@ public class InformationLayout extends VerticalComponentGroupWidget {
 
         ticket.setTimeStamp(date);
 
-        ticket.setRegisterPlateNumber(vehicleIdField.getText());
-
         int vi = violationBox.getSelectedIndex();
         ticket.setViolation(vi == 0 ? null : Violation.values()[vi - 1]);
 
@@ -263,9 +221,6 @@ public class InformationLayout extends VerticalComponentGroupWidget {
 
     public final void ticketUpdated(final Ticket ticket) {
         addressField.setText(ticket.getLocation().getAddress());
-
-        vehicleIdField.setText(ticket.getRegisterPlateNumber());
-
         int vi = Arrays.asList(Violation.values()).indexOf(
                 ticket.getViolation()) + 1;
         violationBox.setSelectedIndex(vi);
@@ -277,8 +232,5 @@ public class InformationLayout extends VerticalComponentGroupWidget {
                 break;
             }
         }
-
-        date = ticket.getTimeStamp();
-        timeField.setDate(date);
     }
 }
