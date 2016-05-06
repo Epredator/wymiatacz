@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# Build timeFri May 06 16:11:42 CEST 2016
+
+CACHE:
+../../../VAADIN/themes/base/fonts/fontawesome-webfont.ttf
+../../../VAADIN/themes/touchkit/styles.css
+../../../VAADIN/vaadinBootstrap.js
+2A422BAFB6D74E04E2E7AEF051BB0CFC.cache.woff
+51DCB1D3F3D956ACC80F89D3CF0AC5BE.cache.woff
+EE47B82AB06DB61D4DF665A73C7A51A9.cache.js
+clear.cache.gif
+com.innovationpassport.widgetset.WymiataczWidgetset.devmode.js
+com.innovationpassport.widgetset.WymiataczWidgetset.nocache.js
+deferredjs/EE47B82AB06DB61D4DF665A73C7A51A9/1.cache.js
+deferredjs/EE47B82AB06DB61D4DF665A73C7A51A9/2.cache.js
+deferredjs/EE47B82AB06DB61D4DF665A73C7A51A9/3.cache.js
+markers/marker-icon-2x.png
+markers/marker-icon.png
+markers/marker-shadow.png
+
+NETWORK:
+*
+
