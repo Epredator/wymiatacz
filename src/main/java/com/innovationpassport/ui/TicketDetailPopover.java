@@ -1,27 +1,19 @@
 package com.innovationpassport.ui;
 
-import java.text.DateFormat;
-
-import com.vaadin.addon.touchkit.ui.Popover;
-import com.vaadin.addon.touchkit.ui.VerticalComponentGroup;
 import com.innovationpassport.MainUI;
 import com.innovationpassport.widgetset.client.model.Ticket;
+import com.vaadin.addon.touchkit.ui.Popover;
+import com.vaadin.addon.touchkit.ui.VerticalComponentGroup;
 import com.vaadin.event.LayoutEvents.LayoutClickEvent;
 import com.vaadin.event.LayoutEvents.LayoutClickListener;
 import com.vaadin.event.MouseEvents.ClickEvent;
 import com.vaadin.event.MouseEvents.ClickListener;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.shared.ui.label.ContentMode;
-import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.Image;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 
-/**
- * A simple detail popup to display information about a ticket.
- */
+import java.text.DateFormat;
+
 public class TicketDetailPopover extends Popover {
 
     private final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, MainUI.getApp().getLocale());
