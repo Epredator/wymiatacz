@@ -1,1 +1,5 @@
-<h1>Hi, oh! I'm a products component</h1>
+<h1>My products</h1>
+<input type = "text" [(ngModel)]="productName">
+<button (click)="productName = 
+'A Tree by click listener (react for events example)' " [disabled] ="isDisabled" >Change name</button>
+<div>{{ productName }}</div>
